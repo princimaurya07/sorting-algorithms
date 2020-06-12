@@ -32,30 +32,25 @@ string partition(long long arr[],int l,int h)
 	return s;
 	
 }
-int qsort(long long arr[],int l,int h)
+int quicksort(long long arr[],int l,int h)
 {
 	string r;
 	if(l>=h)
 	  return 0 ;
 	 r=partition(arr,l,h);
-	 qsort(arr,l,(int)r[0]-1);
-	 qsort(arr,(int)r[1]+1,h);
+	 quicksort(arr,l,(int)r[0]-1);
+	 quicksort(arr,(int)r[1]+1,h);
    return 0;	  
 }
 int main()
-{
+{       
 	int n;
 	cin>>n;
 	long long arr[n];
 	for(int i=0;i<n;i++)
-	{
-		cin>>arr[i];
-	}
+	   cin>>arr[i];
 	int l=0,h=n-1;
-	
-	qsort(arr,l,h);
+	quicksort(arr,l,h);
 	for(int i=0;i<n;i++)
-	{
-		cout<<arr[i]<<" ";
-	}
+	   cout<<arr[i]<<" ";
 }
